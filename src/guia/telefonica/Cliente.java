@@ -127,10 +127,4 @@ public class Cliente implements Comparable<Cliente>{
         
         }
     }
-    
-    
-    
-    
-    
-    
 }
