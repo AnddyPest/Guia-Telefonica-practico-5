@@ -4,16 +4,16 @@ import java.util.Objects;
 import java.util.TreeSet;
 
 
-public class Persona implements Comparable<Persona>{
+public class Cliente implements Comparable<Cliente>{
 
     int dni;
     String nombre;
     String apellido;
     String ciudad;
     String direccion;
-    TreeSet<Persona> cliente;    
+    TreeSet<Cliente> cliente;    
 
-    public Persona(int dni, String nombre, String apellido, String ciudad, String direccion) {
+    public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -63,11 +63,11 @@ public class Persona implements Comparable<Persona>{
         this.direccion = direccion;
     }
 
-    public TreeSet<Persona> getPersona() {
+    public TreeSet<Cliente> getPersona() {
         return cliente;
     }
 
-    public void setPersona(TreeSet<Persona> persona) {
+    public void setPersona(TreeSet<Cliente> persona) {
         this.cliente = persona;
     }
 
@@ -95,7 +95,7 @@ public class Persona implements Comparable<Persona>{
         if (getClass() != obj.getClass()) {
             return false;
         }
-        final Persona other = (Persona) obj;
+        final Cliente other = (Cliente) obj;
         if (this.dni != other.dni) {
             return false;
         }
@@ -119,7 +119,7 @@ public class Persona implements Comparable<Persona>{
 
     @Override
     
-    public int compareTo(Persona o) {
+    public int compareTo(Cliente o) {
         if(this.apellido.equalsIgnoreCase(o.apellido)){
             return this.nombre.compareTo(o.nombre);
         }else{
