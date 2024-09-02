@@ -56,8 +56,8 @@ public class Inicio extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
 
-        srcScrn.setMinimumSize(new java.awt.Dimension(484, 460));
-        srcScrn.setPreferredSize(new java.awt.Dimension(496, 460));
+        srcScrn.setMinimumSize(new java.awt.Dimension(501, 450));
+        srcScrn.setPreferredSize(new java.awt.Dimension(501, 450));
         srcScrn.setResizable(false);
 
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
@@ -131,23 +131,23 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(112, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout srcScrnLayout = new javax.swing.GroupLayout(srcScrn.getContentPane());
         srcScrn.getContentPane().setLayout(srcScrnLayout);
         srcScrnLayout.setHorizontalGroup(
             srcScrnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, srcScrnLayout.createSequentialGroup()
+            .addGroup(srcScrnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         srcScrnLayout.setVerticalGroup(
             srcScrnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(srcScrnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
