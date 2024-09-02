@@ -1,16 +1,14 @@
 
 package VISTAS;
-
-import guia.telefonica.Herramientas;
-
+import javax.swing.text.*;
+import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
    
-    private int eleccion ;
+    
     public Inicio() {
         
         initComponents();
-        CampoSoloNumeros.setVisible(false);
     }
 
     /**
@@ -25,16 +23,15 @@ public class Inicio extends javax.swing.JFrame {
         srcSelect = new javax.swing.ButtonGroup();
         srcScrn = new javax.swing.JDialog();
         jPanel5 = new javax.swing.JPanel();
-        BotonTelefono = new javax.swing.JToggleButton();
-        BotonNombre = new javax.swing.JToggleButton();
-        BotonCiudad = new javax.swing.JToggleButton();
+        jToggleButton1 = new javax.swing.JToggleButton();
+        jToggleButton2 = new javax.swing.JToggleButton();
+        jToggleButton3 = new javax.swing.JToggleButton();
         jLabel8 = new javax.swing.JLabel();
         jSeparator2 = new javax.swing.JSeparator();
-        CampoDeIngresoBusqueda = new javax.swing.JTextField();
-        BotonDeBusqueda = new javax.swing.JButton();
-        ComboBoxBusqueda = new javax.swing.JComboBox<>();
+        jTextField7 = new javax.swing.JTextField();
+        jButton6 = new javax.swing.JButton();
+        jComboBox1 = new javax.swing.JComboBox<>();
         jButton7 = new javax.swing.JButton();
-        CampoSoloNumeros = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
@@ -66,44 +63,14 @@ public class Inicio extends javax.swing.JFrame {
         jPanel5.setBackground(new java.awt.Color(0, 0, 0));
         jPanel5.setMinimumSize(new java.awt.Dimension(484, 437));
 
-        srcSelect.add(BotonTelefono);
-        BotonTelefono.setText("Por Teléfono");
-        BotonTelefono.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                BotonTelefonoItemStateChanged(evt);
-            }
-        });
-        BotonTelefono.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonTelefonoActionPerformed(evt);
-            }
-        });
+        srcSelect.add(jToggleButton1);
+        jToggleButton1.setText("Por Teléfono");
 
-        srcSelect.add(BotonNombre);
-        BotonNombre.setText("Por Nombre");
-        BotonNombre.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                BotonNombreItemStateChanged(evt);
-            }
-        });
-        BotonNombre.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonNombreActionPerformed(evt);
-            }
-        });
+        srcSelect.add(jToggleButton2);
+        jToggleButton2.setText("Por Nombre");
 
-        srcSelect.add(BotonCiudad);
-        BotonCiudad.setText("Por Ciudad");
-        BotonCiudad.addItemListener(new java.awt.event.ItemListener() {
-            public void itemStateChanged(java.awt.event.ItemEvent evt) {
-                BotonCiudadItemStateChanged(evt);
-            }
-        });
-        BotonCiudad.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                BotonCiudadActionPerformed(evt);
-            }
-        });
+        srcSelect.add(jToggleButton3);
+        jToggleButton3.setText("Por Ciudad");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(255, 255, 255));
@@ -111,33 +78,11 @@ public class Inicio extends javax.swing.JFrame {
         jLabel8.setText("Como desea realizar su búsqueda?");
         jLabel8.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
 
-        CampoDeIngresoBusqueda.addFocusListener(new java.awt.event.FocusAdapter() {
-            public void focusGained(java.awt.event.FocusEvent evt) {
-                CampoDeIngresoBusquedaFocusGained(evt);
-            }
-        });
-        CampoDeIngresoBusqueda.addInputMethodListener(new java.awt.event.InputMethodListener() {
-            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
-            }
-            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
-                CampoDeIngresoBusquedaInputMethodTextChanged(evt);
-            }
-        });
-        CampoDeIngresoBusqueda.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyTyped(java.awt.event.KeyEvent evt) {
-                CampoDeIngresoBusquedaKeyTyped(evt);
-            }
-        });
+        jButton6.setText("Buscar");
 
-        BotonDeBusqueda.setText("Buscar");
-
-        ComboBoxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
         jButton7.setText("Aceptar");
-
-        CampoSoloNumeros.setBackground(java.awt.Color.red);
-        CampoSoloNumeros.setForeground(java.awt.Color.red);
-        CampoSoloNumeros.setText("Solo se aceptan numeros");
 
         javax.swing.GroupLayout jPanel5Layout = new javax.swing.GroupLayout(jPanel5);
         jPanel5.setLayout(jPanel5Layout);
@@ -148,25 +93,19 @@ public class Inicio extends javax.swing.JFrame {
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(59, 59, 59)
                         .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(ComboBoxBusqueda, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jComboBox1, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addComponent(BotonTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotonNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(18, 18, 18)
-                                .addComponent(BotonCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jSeparator2)
                             .addGroup(jPanel5Layout.createSequentialGroup()
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(CampoSoloNumeros)
-                                    .addComponent(CampoDeIngresoBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(BotonDeBusqueda))
-                                    .addGroup(jPanel5Layout.createSequentialGroup()
-                                        .addGap(54, 54, 54)
-                                        .addComponent(jSeparator2))))))
+                                .addComponent(jTextField7, javax.swing.GroupLayout.PREFERRED_SIZE, 271, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jButton6))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(194, 194, 194)
                         .addComponent(jButton7)))
@@ -179,22 +118,20 @@ public class Inicio extends javax.swing.JFrame {
                 .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(BotonTelefono, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(BotonCiudad, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jToggleButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jToggleButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(CampoSoloNumeros, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jSeparator2, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(CampoDeIngresoBusqueda)
-                    .addComponent(BotonDeBusqueda, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
+                    .addComponent(jTextField7)
+                    .addComponent(jButton6, javax.swing.GroupLayout.DEFAULT_SIZE, 40, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
-                .addComponent(ComboBoxBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jComboBox1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(111, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout srcScrnLayout = new javax.swing.GroupLayout(srcScrn.getContentPane());
@@ -210,7 +147,7 @@ public class Inicio extends javax.swing.JFrame {
             srcScrnLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(srcScrnLayout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, 432, Short.MAX_VALUE)
                 .addContainerGap())
         );
 
@@ -490,58 +427,40 @@ public class Inicio extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         srcScrn.setVisible(true);
-        
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void BotonTelefonoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonTelefonoActionPerformed
-        
-        
-    }//GEN-LAST:event_BotonTelefonoActionPerformed
+    private void btnNewActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNewActionPerformed
+        txtDni.setEditable(true);
+        txtNom.setEditable(true);
+        txtApe.setEditable(true);
+        txtDir.setEditable(true);
+        txtCiu.setEditable(true);
+        txtNum.setEditable(true);
+        txtDni.requestFocus();
+    }//GEN-LAST:event_btnNewActionPerformed
 
-    private void CampoDeIngresoBusquedaFocusGained(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeIngresoBusquedaFocusGained
-        
-    }//GEN-LAST:event_CampoDeIngresoBusquedaFocusGained
-
-    private void CampoDeIngresoBusquedaInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_CampoDeIngresoBusquedaInputMethodTextChanged
-        
-    }//GEN-LAST:event_CampoDeIngresoBusquedaInputMethodTextChanged
-
-    private void BotonNombreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonNombreActionPerformed
-        
-        
-        
-    }//GEN-LAST:event_BotonNombreActionPerformed
-
-    private void BotonCiudadActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonCiudadActionPerformed
-        
-        System.out.println(eleccion);
-    }//GEN-LAST:event_BotonCiudadActionPerformed
-    //Cambia de color el boton de telefono
-    private void BotonTelefonoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonTelefonoItemStateChanged
-        
-        eleccion = Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono, "Telefono",1);
-                
-    }//GEN-LAST:event_BotonTelefonoItemStateChanged
-
-    private void BotonNombreItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonNombreItemStateChanged
-        
-        eleccion = Herramientas.comprobarSiElBotonEstaSeleccionado( BotonNombre, "Nombre",2);
-            
-    }//GEN-LAST:event_BotonNombreItemStateChanged
-
-    private void BotonCiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonCiudadItemStateChanged
-         
-        eleccion = Herramientas.comprobarSiElBotonEstaSeleccionado(BotonCiudad, "Ciudad", 3);
-    }//GEN-LAST:event_BotonCiudadItemStateChanged
-
-    private void CampoDeIngresoBusquedaKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoDeIngresoBusquedaKeyTyped
-        
-        Herramientas.noDejarIngresarNumeros(eleccion,  evt, CampoDeIngresoBusqueda,10);
-    }//GEN-LAST:event_CampoDeIngresoBusquedaKeyTyped
+    private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
+        int key = evt.getKeyChar();
+    boolean numero = key>=48 && key<=57;
     
+    if(!numero){
+        evt.consume();
+    }
+
+    }//GEN-LAST:event_txtDniKeyTyped
+
+    private void txtNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyTyped
+       int key = evt.getKeyChar();
+    boolean numero = key>=48 && key<=57;
+    
+    if(!numero){
+        evt.consume();
+    }
+
+    }//GEN-LAST:event_txtNumKeyTyped
+
     /**
      * @param args the command line arguments
      */
@@ -578,19 +497,14 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton BotonCiudad;
-    private javax.swing.JButton BotonDeBusqueda;
-    private javax.swing.JToggleButton BotonNombre;
-    private javax.swing.JToggleButton BotonTelefono;
-    private javax.swing.JTextField CampoDeIngresoBusqueda;
-    private javax.swing.JLabel CampoSoloNumeros;
-    private javax.swing.JComboBox<String> ComboBoxBusqueda;
     private javax.swing.JButton btnNew;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
+    private javax.swing.JComboBox<String> jComboBox1;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
@@ -607,6 +521,10 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel5;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JSeparator jSeparator2;
+    private javax.swing.JTextField jTextField7;
+    private javax.swing.JToggleButton jToggleButton1;
+    private javax.swing.JToggleButton jToggleButton2;
+    private javax.swing.JToggleButton jToggleButton3;
     private javax.swing.JDialog srcScrn;
     private javax.swing.ButtonGroup srcSelect;
     private javax.swing.JTextField txtApe;
@@ -616,4 +534,8 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField txtNom;
     private javax.swing.JTextField txtNum;
     // End of variables declaration//GEN-END:variables
+
+
+
+    
 }
