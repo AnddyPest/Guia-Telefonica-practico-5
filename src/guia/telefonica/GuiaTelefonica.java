@@ -11,13 +11,13 @@ import java.util.TreeMap;
  */
 public class GuiaTelefonica {
 
-    public static TreeMap<Long, Persona> cliente = new TreeMap();
+    public static TreeMap<Long, Cliente> cliente = new TreeMap();
 
-    public TreeMap<Long, Persona> getCliente() {
+    public TreeMap<Long, Cliente> getCliente() {
         return cliente;
     }
 
-    public void setCliente(TreeMap<Long, Persona> cliente) {
+    public void setCliente(TreeMap<Long, Cliente> cliente) {
         this.cliente = cliente;
     }
 
