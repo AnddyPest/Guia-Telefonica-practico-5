@@ -15,13 +15,15 @@ import javax.swing.JToggleButton;
  * @author Max
  */
 public class Herramientas {
+    //apaga el boton enviado
     public static void apagarBotonConfirmar(JButton boton){
         boton.setEnabled(false);
     }
-                         
+    //Habilita el boton enviado               
     public static void prenderBotonConfirmar(JButton boton){
         boton.setEnabled(true);
     }
+    //Revisa si un campo de texto esta vacio, de ser así, apaga el boton que se le envia
     public static void revisarSiEstaVacio(JTextField campoArevisar, JButton boton){
         
         if(campoArevisar.getText().strip().isEmpty()){
@@ -33,6 +35,7 @@ public class Herramientas {
         }
         
     }
+    //No deja que el usuario escriba otra cosa que no sean numeros en el campo de texto
     public static void noDejarIngresarNumeros(int activado,java.awt.event.KeyEvent evt){
         int key = evt.getKeyChar();
         if(activado == 1){
@@ -40,11 +43,10 @@ public class Herramientas {
             
             if(!numero){
                 evt.consume();
-            }
-            
-            
+            }                        
         }
     }
+    //Sobrecarga, permite agregarle un limite de numeros ingresados al campo de texto
     public static void noDejarIngresarNumeros(int activado, java.awt.event.KeyEvent evt, JTextField campoDeTexto, int limite){
         int key = evt.getKeyChar();
         if(activado == 1){
@@ -59,6 +61,7 @@ public class Herramientas {
             }
         }
     }
+    //Revisa si en el campo de texto solo hay numeros
     public static void revisarSiSoloSonNumeros(JTextField campoARevisar,JLabel etiquetaSoloNumeros ,JButton boton ){
         if(!campoARevisar.getText().matches("\\d+")){
             etiquetaSoloNumeros.setVisible(true);
@@ -68,6 +71,7 @@ public class Herramientas {
             prenderBotonConfirmar(boton);
         }
     }
+    //Comprueba si un JToggleButton esta seleccionado y de ser así lo pone de color verde, si no a su color default
     public static int comprobarSiElBotonEstaSeleccionado(JToggleButton botonSeleccionado, String nombreDelBoton,int cambiarEleccion){
         int eleccion = cambiarEleccion;
         if(botonSeleccionado.isSelected()){
