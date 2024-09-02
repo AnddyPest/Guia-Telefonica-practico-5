@@ -2,7 +2,6 @@
 package VISTAS;
 
 import guia.telefonica.Herramientas;
-import java.awt.Color;
 
 
 public class Inicio extends javax.swing.JFrame {
