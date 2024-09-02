@@ -119,12 +119,13 @@ public class Persona implements Comparable<Persona>{
 
     @Override
     public int compareTo(Persona o) {
+        if(this.apellido.equalsIgnoreCase(o.apellido)){
+            return this.nombre.compareTo(o.nombre);
+        }else{
         return this.apellido.compareTo(o.getApellido());
         
-        
-    
+        }
     }
-
     
     
     
