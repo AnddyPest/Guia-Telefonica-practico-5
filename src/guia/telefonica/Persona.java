@@ -126,10 +126,4 @@ public class Persona implements Comparable<Persona>{
         
         }
     }
-    
-    
-    
-    
-    
-    
 }
