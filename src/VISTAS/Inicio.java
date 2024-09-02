@@ -33,7 +33,7 @@ public class Inicio extends javax.swing.JFrame {
         CampoDeIngresoBusqueda = new javax.swing.JTextField();
         BotonDeBusqueda = new javax.swing.JButton();
         ComboBoxBusqueda = new javax.swing.JComboBox<>();
-        jButton7 = new javax.swing.JButton();
+        BotonAceptar = new javax.swing.JButton();
         CampoSoloNumeros = new javax.swing.JLabel();
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
@@ -133,7 +133,7 @@ public class Inicio extends javax.swing.JFrame {
 
         ComboBoxBusqueda.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
 
-        jButton7.setText("Aceptar");
+        BotonAceptar.setText("Aceptar");
 
         CampoSoloNumeros.setBackground(java.awt.Color.red);
         CampoSoloNumeros.setForeground(java.awt.Color.red);
@@ -169,7 +169,7 @@ public class Inicio extends javax.swing.JFrame {
                                         .addComponent(jSeparator2))))))
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addGap(194, 194, 194)
-                        .addComponent(jButton7)))
+                        .addComponent(BotonAceptar)))
                 .addContainerGap(56, Short.MAX_VALUE))
         );
         jPanel5Layout.setVerticalGroup(
@@ -193,7 +193,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(ComboBoxBusqueda, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton7, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(BotonAceptar, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(111, Short.MAX_VALUE))
         );
 
@@ -578,6 +578,7 @@ public class Inicio extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton BotonAceptar;
     private javax.swing.JToggleButton BotonCiudad;
     private javax.swing.JButton BotonDeBusqueda;
     private javax.swing.JToggleButton BotonNombre;
@@ -590,7 +591,6 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton7;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
