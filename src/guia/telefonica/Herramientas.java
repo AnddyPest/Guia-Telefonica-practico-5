@@ -33,6 +33,32 @@ public class Herramientas {
         }
         
     }
+    public static void noDejarIngresarNumeros(int activado,java.awt.event.KeyEvent evt){
+        int key = evt.getKeyChar();
+        if(activado == 1){
+            boolean numero = key > 48 && key <= 57;
+            
+            if(!numero){
+                evt.consume();
+            }
+            
+            
+        }
+    }
+    public static void noDejarIngresarNumeros(int activado, java.awt.event.KeyEvent evt, JTextField campoDeTexto, int limite){
+        int key = evt.getKeyChar();
+        if(activado == 1){
+            boolean numero = key > 48 && key <= 57;
+            
+            if(!numero){
+                evt.consume();
+            }
+            
+            if(campoDeTexto.getText().trim().length() == limite){
+                evt.consume();
+            }
+        }
+    }
     public static void revisarSiSoloSonNumeros(JTextField campoARevisar,JLabel etiquetaSoloNumeros ,JButton boton ){
         if(!campoARevisar.getText().matches("\\d+")){
             etiquetaSoloNumeros.setVisible(true);
@@ -53,5 +79,6 @@ public class Herramientas {
         }
         return eleccion;
     }
+    
     
 }
