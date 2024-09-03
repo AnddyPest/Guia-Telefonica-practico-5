@@ -20,6 +20,7 @@ public class Inicio extends javax.swing.JFrame {
         initComponents();
         setLocationRelativeTo(null);
         btnSave.setEnabled(false);
+        
     }
     
     public void habilitarBtnSrc() {
