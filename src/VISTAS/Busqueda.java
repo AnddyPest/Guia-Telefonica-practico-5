@@ -48,6 +48,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         etiquetaSeleccionarBoton = new javax.swing.JLabel();
         ComboBox = new javax.swing.JComboBox<>();
         BotonAceptar = new javax.swing.JButton();
+        BotonVolver = new javax.swing.JButton();
 
         setTitle("Busqueda");
 
@@ -142,6 +143,14 @@ public class Busqueda extends javax.swing.JInternalFrame {
         BotonAceptar.setText("Aceptar");
         jPanel1.add(BotonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(707, 524, 80, 40));
 
+        BotonVolver.setText("volver");
+        BotonVolver.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BotonVolverActionPerformed(evt);
+            }
+        });
+        jPanel1.add(BotonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -215,6 +224,12 @@ public class Busqueda extends javax.swing.JInternalFrame {
              
     }//GEN-LAST:event_CampoDeIngresoMouseClicked
 
+    private void BotonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverActionPerformed
+        this.setVisible(false);        
+        Inicio vistaInicio = new Inicio();
+        vistaInicio.setVisible(true);                
+    }//GEN-LAST:event_BotonVolverActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton BotonAceptar;
@@ -222,6 +237,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JButton BotonBuscar;
     private javax.swing.JToggleButton BotonCiudad;
     private javax.swing.JToggleButton BotonTelefono;
+    private javax.swing.JButton BotonVolver;
     private javax.swing.JTextField CampoDeIngreso;
     private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel LabelTitulo;
