@@ -1,8 +1,6 @@
 package VISTAS;
 
 import guia.telefonica.Cliente;
-import java.util.Set;
-//import guia.telefonica.GuiaTelefonica;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import javax.swing.*;
@@ -10,10 +8,6 @@ import javax.swing.*;
 public class Inicio extends javax.swing.JFrame {
     TreeSet<Cliente> clientes = new TreeSet();
     TreeMap<Long, Cliente> guiaTelefonica = new TreeMap();
-    
-    
-    
-    
     
     public Inicio() {
         
@@ -438,28 +432,28 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         int doc = Integer.parseInt(txtDni.getText());
+        boolean validado = false;    
         String nombre = txtNom.getText();
         String apellido = txtApe.getText();
         String ciudad = txtCiu.getText();
         String direccion = txtDir.getText();
-        Long tel = Long.valueOf(txtNum.getText());
+        Long telefono = Long.valueOf(txtNum.getText());
         
         Cliente nuevoCliente = new Cliente(doc, nombre, apellido, ciudad, direccion);
         clientes.add(nuevoCliente);
-        
-        
-        if(!guiaTelefonica.containsKey(tel)){
-            guiaTelefonica.put(tel, nuevoCliente);
-            mensaje("Cliente "+nuevoCliente.getApellido()+" "+nuevoCliente.getNombre()+" DNI: "+nuevoCliente.getDni(),"TELEFONO: "+tel);
-            
-        }else{
-            mensaje("El telefono: "+tel+" ya esta utilizado por otro cliente.","ERROR");
+       
+        for(Long telefon : guiaTelefonica.keySet() ){
+            if(telefon == telefono ){
+                validado = true;
+            }
         }
-    
-        
-        
-        
-        
+        if(!validado){
+            guiaTelefonica.put(telefono, nuevoCliente);
+            mensaje("Cliente "+ nuevoCliente.getApellido() +" "+ nuevoCliente.getNombre() + " DNI: " + nuevoCliente.getDni() , "TELEFONO: " + telefono );
+            
+        } else {
+            mensaje("El telefono: " + telefono + " ya esta utilizado por otro cliente.","ERROR");
+        }
         
                 
         txtDni.setEditable(false); txtDni.setText("");
