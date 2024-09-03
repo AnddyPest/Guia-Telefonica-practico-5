@@ -15,12 +15,14 @@ public class Busqueda extends javax.swing.JInternalFrame {
 
     private int seleccion;
     ButtonGroup grupo = new ButtonGroup();
+    
     public Busqueda() {
         initComponents();
         grupo.add(BotonTelefono);
         grupo.add(BotonApellido);
         grupo.add(BotonCiudad);
         LabelVacio.setVisible(false);
+        
         
     }
 
