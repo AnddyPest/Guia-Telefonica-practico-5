@@ -4,6 +4,8 @@
  */
 package VISTAS;
 
+import guia.telefonica.Herramientas;
+
 /**
  *
  * @author Max
@@ -26,48 +28,92 @@ public class Busqueda extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        BackgroundPanel = new javax.swing.JPanel();
-        PanelAzul = new javax.swing.JPanel();
+        jPanel1 = new javax.swing.JPanel();
+        Panel2 = new javax.swing.JPanel();
+        LabelTitulo = new javax.swing.JLabel();
+        BotonCiudad = new javax.swing.JToggleButton();
+        BotonTelefono = new javax.swing.JToggleButton();
+        BotonApellido = new javax.swing.JToggleButton();
+        CampoDeIngreso = new javax.swing.JTextField();
+        Buscar = new javax.swing.JButton();
+        ComboBox = new javax.swing.JComboBox<>();
+        BotonAceptar = new javax.swing.JButton();
 
-        BackgroundPanel.setBackground(java.awt.Color.white);
-        BackgroundPanel.setForeground(java.awt.Color.white);
-        BackgroundPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        setTitle("Busqueda");
 
-        PanelAzul.setBackground(new java.awt.Color(0, 204, 255));
-        PanelAzul.setForeground(new java.awt.Color(0, 204, 255));
+        jPanel1.setBackground(java.awt.SystemColor.textHighlight);
+        jPanel1.setForeground(java.awt.Color.white);
+        jPanel1.setToolTipText("");
+        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        javax.swing.GroupLayout PanelAzulLayout = new javax.swing.GroupLayout(PanelAzul);
-        PanelAzul.setLayout(PanelAzulLayout);
-        PanelAzulLayout.setHorizontalGroup(
-            PanelAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 180, Short.MAX_VALUE)
-        );
-        PanelAzulLayout.setVerticalGroup(
-            PanelAzulLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 470, Short.MAX_VALUE)
-        );
+        Panel2.setBackground(java.awt.Color.white);
+        Panel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
+        Panel2.setForeground(java.awt.Color.white);
+        Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        BackgroundPanel.add(PanelAzul, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 180, 470));
+        LabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelTitulo.setForeground(java.awt.Color.black);
+        LabelTitulo.setText("Seleccione el Criterio de Busqueda");
+        Panel2.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 43));
+
+        BotonCiudad.setText("Por Ciudad");
+        Panel2.add(BotonCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 90, 40));
+
+        BotonTelefono.setText("Por Telefono");
+        BotonTelefono.setToolTipText("");
+        BotonTelefono.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        BotonTelefono.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                BotonTelefonoItemStateChanged(evt);
+            }
+        });
+        Panel2.add(BotonTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 40));
+
+        BotonApellido.setText("Por Apellido");
+        Panel2.add(BotonApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 90, 40));
+        Panel2.add(CampoDeIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 300, 40));
+
+        Buscar.setText("Buscar");
+        Panel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 110, 50));
+
+        jPanel1.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 580));
+
+        ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un contacto" }));
+        ComboBox.setToolTipText("");
+        jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 410, 30));
+
+        BotonAceptar.setText("Aceptar");
+        jPanel1.add(BotonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(707, 524, 80, 40));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(BackgroundPanel, javax.swing.GroupLayout.PREFERRED_SIZE, 649, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, 798, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(BackgroundPanel, javax.swing.GroupLayout.DEFAULT_SIZE, 473, Short.MAX_VALUE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void BotonTelefonoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonTelefonoItemStateChanged
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono, "Telefono", 1);
+    }//GEN-LAST:event_BotonTelefonoItemStateChanged
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JPanel BackgroundPanel;
-    private javax.swing.JPanel PanelAzul;
+    private javax.swing.JButton BotonAceptar;
+    private javax.swing.JToggleButton BotonApellido;
+    private javax.swing.JToggleButton BotonCiudad;
+    private javax.swing.JToggleButton BotonTelefono;
+    private javax.swing.JButton Buscar;
+    private javax.swing.JTextField CampoDeIngreso;
+    private javax.swing.JComboBox<String> ComboBox;
+    private javax.swing.JLabel LabelTitulo;
+    private javax.swing.JPanel Panel2;
+    private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
