@@ -46,23 +46,34 @@ public class Busqueda extends javax.swing.JInternalFrame {
         BotonBuscar = new javax.swing.JButton();
         LabelVacio = new javax.swing.JLabel();
         etiquetaSeleccionarBoton = new javax.swing.JLabel();
+        jSeparator1 = new javax.swing.JSeparator();
         ComboBox = new javax.swing.JComboBox<>();
         BotonAceptar = new javax.swing.JButton();
         BotonVolver = new javax.swing.JButton();
 
         setTitle("Busqueda");
+        setMaximumSize(new java.awt.Dimension(790, 390));
+        setMinimumSize(new java.awt.Dimension(790, 390));
+        setPreferredSize(new java.awt.Dimension(790, 390));
 
         jPanel1.setBackground(java.awt.SystemColor.textHighlight);
         jPanel1.setForeground(java.awt.Color.white);
         jPanel1.setToolTipText("");
+        jPanel1.setMaximumSize(new java.awt.Dimension(790, 390));
+        jPanel1.setMinimumSize(new java.awt.Dimension(790, 390));
+        jPanel1.setPreferredSize(new java.awt.Dimension(790, 390));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         Panel2.setBackground(java.awt.Color.white);
         Panel2.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.lightGray));
         Panel2.setForeground(java.awt.Color.white);
+        Panel2.setMaximumSize(new java.awt.Dimension(330, 390));
+        Panel2.setMinimumSize(new java.awt.Dimension(330, 390));
+        Panel2.setPreferredSize(new java.awt.Dimension(330, 390));
         Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        LabelTitulo.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         LabelTitulo.setText("Seleccione el Criterio de Busqueda");
         Panel2.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 43));
 
@@ -122,7 +133,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
                 BotonBuscarActionPerformed(evt);
             }
         });
-        Panel2.add(BotonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 110, 50));
+        Panel2.add(BotonBuscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 280, 110, 50));
 
         LabelVacio.setBackground(java.awt.Color.red);
         LabelVacio.setForeground(java.awt.Color.red);
@@ -133,23 +144,24 @@ public class Busqueda extends javax.swing.JInternalFrame {
         etiquetaSeleccionarBoton.setForeground(java.awt.Color.red);
         etiquetaSeleccionarBoton.setText("Debe seleccionar una opcion");
         Panel2.add(etiquetaSeleccionarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+        Panel2.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 320, -1));
 
-        jPanel1.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 580));
+        jPanel1.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 340, 390));
 
         ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un contacto" }));
         ComboBox.setToolTipText("");
         jPanel1.add(ComboBox, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 60, 410, 30));
 
         BotonAceptar.setText("Aceptar");
-        jPanel1.add(BotonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(707, 524, 80, 40));
+        jPanel1.add(BotonAceptar, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 100, 80, 40));
 
-        BotonVolver.setText("volver");
+        BotonVolver.setText("Volver");
         BotonVolver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 BotonVolverActionPerformed(evt);
             }
         });
-        jPanel1.add(BotonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(730, 10, -1, -1));
+        jPanel1.add(BotonVolver, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -228,8 +240,8 @@ public class Busqueda extends javax.swing.JInternalFrame {
 
     private void BotonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverActionPerformed
         this.setVisible(false);        
-        Inicio vistaInicio = new Inicio();
-        vistaInicio.setVisible(true);                
+        
+                       
     }//GEN-LAST:event_BotonVolverActionPerformed
 
 
@@ -247,5 +259,6 @@ public class Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JPanel Panel2;
     private javax.swing.JLabel etiquetaSeleccionarBoton;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JSeparator jSeparator1;
     // End of variables declaration//GEN-END:variables
 }
