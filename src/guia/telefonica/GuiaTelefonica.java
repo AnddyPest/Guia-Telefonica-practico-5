@@ -4,6 +4,7 @@ package guia.telefonica;
 
 import java.util.Map;
 import java.util.Objects;
+import java.util.Set;
 import java.util.TreeMap;
 
 /**
@@ -13,20 +14,32 @@ import java.util.TreeMap;
 public class GuiaTelefonica {
     
     
-    public static TreeMap<Long, Cliente> clienteTel;
+    public TreeMap<Long, Cliente> clienteTel = new TreeMap(); 
 
-    public GuiaTelefonica(TreeMap<Long, Cliente> clienteTel) {
-        GuiaTelefonica.clienteTel = new TreeMap();
-    }
-    
-    
-    public TreeMap<Long, Cliente> getCliente() {
+     public TreeMap<Long, Cliente> getCliente() {
         return clienteTel;
     }
 
     public void setCliente(TreeMap<Long, Cliente> cliente) {
         this.clienteTel = cliente;
     }
+    
+    public Cliente getTelefono(Long telefono){
+        return clienteTel.get(telefono);
+    }
+    
+    public Set<Long> getTodoTelefonos(){
+        return clienteTel.keySet();
+    }
+    
+    public void putCliente(Long telefono, Cliente cliente) {
+        if(!clienteTel.containsKey(telefono)){
+            clienteTel.put(telefono, cliente);
+        }else{
+            
+        }
+}
+
     
     
 
@@ -55,7 +68,7 @@ public class GuiaTelefonica {
     @Override
     public String toString() {
         
-        return "";
+        return Map.entry(this, this).getKey().toString();
     }
 
     
