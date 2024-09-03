@@ -446,12 +446,13 @@ public class Inicio extends javax.swing.JFrame {
         
         Cliente nuevoCliente = new Cliente(doc, nombre, apellido, ciudad, direccion);
         clientes.add(nuevoCliente);
-       
+        // revisa las "claves" de la guia, si es repetido le agrega a validado como verdadero 
         for(Long telefon : guiaTelefonica.keySet() ){
             if(telefon == telefono ){
                 validado = true;
             }
         }
+        //si "validado" es verdadero entonces no va a modificar el valor que contenga ese usuario.
         if(!validado){
             guiaTelefonica.put(telefono, nuevoCliente);
             mensaje("Cliente "+ nuevoCliente.getApellido() +" "+ nuevoCliente.getNombre() + " DNI: " + nuevoCliente.getDni() , "TELEFONO: " + telefono );
