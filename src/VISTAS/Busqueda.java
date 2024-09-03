@@ -13,7 +13,7 @@ import javax.swing.ButtonGroup;
  */
 public class Busqueda extends javax.swing.JInternalFrame {
 
-    private int seleccion;
+    private int seleccion = 4;
     ButtonGroup grupo = new ButtonGroup();
     public Busqueda() {
         initComponents();
@@ -21,6 +21,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         grupo.add(BotonApellido);
         grupo.add(BotonCiudad);
         LabelVacio.setVisible(false);
+        etiquetaSeleccionarBoton.setVisible(false);
         
     }
 
@@ -42,6 +43,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         CampoDeIngreso = new javax.swing.JTextField();
         BotonBuscar = new javax.swing.JButton();
         LabelVacio = new javax.swing.JLabel();
+        etiquetaSeleccionarBoton = new javax.swing.JLabel();
         ComboBox = new javax.swing.JComboBox<>();
         BotonAceptar = new javax.swing.JButton();
 
@@ -58,7 +60,6 @@ public class Busqueda extends javax.swing.JInternalFrame {
         Panel2.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         LabelTitulo.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        LabelTitulo.setForeground(java.awt.Color.black);
         LabelTitulo.setText("Seleccione el Criterio de Busqueda");
         Panel2.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 43));
 
@@ -125,6 +126,11 @@ public class Busqueda extends javax.swing.JInternalFrame {
         LabelVacio.setText("No puede estar vacio");
         Panel2.add(LabelVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
 
+        etiquetaSeleccionarBoton.setBackground(java.awt.Color.red);
+        etiquetaSeleccionarBoton.setForeground(java.awt.Color.red);
+        etiquetaSeleccionarBoton.setText("Debe seleccionar una opcion");
+        Panel2.add(etiquetaSeleccionarBoton, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 80, -1, -1));
+
         jPanel1.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 580));
 
         ComboBox.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Seleccione un contacto" }));
@@ -181,7 +187,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
         boolean validacion = Herramientas.revisarSiEstaVacio(CampoDeIngreso,LabelVacio ,BotonBuscar);
-        if(!validacion){
+        if(!validacion && seleccion != 0){
             switch(seleccion){
                 case 1 -> {
                      System.out.println("Telefono");
@@ -191,6 +197,10 @@ public class Busqueda extends javax.swing.JInternalFrame {
                 }
                 case 3 -> {
                     System.out.println("Ciudad");
+                }
+                case 4 -> {
+                    System.out.println("Debe seleccionar uno");
+                    etiquetaSeleccionarBoton.setVisible(true);
                 }
             }
            
@@ -215,6 +225,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JLabel LabelTitulo;
     private javax.swing.JLabel LabelVacio;
     private javax.swing.JPanel Panel2;
+    private javax.swing.JLabel etiquetaSeleccionarBoton;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
 }
