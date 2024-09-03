@@ -60,7 +60,7 @@ public class Inicio extends javax.swing.JFrame {
         txtCiu = new javax.swing.JTextField();
         txtNum = new javax.swing.JTextField();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 0));
 
@@ -82,6 +82,11 @@ public class Inicio extends javax.swing.JFrame {
 
         jButton4.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton4.setText("Exit");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
 
         btnNew.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         btnNew.setText("Nuevo");
@@ -466,6 +471,10 @@ public class Inicio extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btnSaveActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        dispose();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     private void mensaje(String mensaje, String titulo) {
         JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
