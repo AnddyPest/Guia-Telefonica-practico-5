@@ -74,6 +74,7 @@ public class Herramientas {
     //Comprueba si un JToggleButton esta seleccionado y de ser así lo pone de color verde, si no a su color default
     public static int comprobarSiElBotonEstaSeleccionado(JToggleButton botonSeleccionado, String nombreDelBoton,int cambiarEleccion){
         int eleccion = cambiarEleccion;
+        
         if(botonSeleccionado.isSelected()){
             System.out.println("Boton " +  nombreDelBoton + " seleccionado");
             botonSeleccionado.setBackground(Color.GREEN);

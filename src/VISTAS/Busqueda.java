@@ -5,6 +5,7 @@
 package VISTAS;
 
 import guia.telefonica.Herramientas;
+import javax.swing.ButtonGroup;
 
 /**
  *
@@ -12,11 +13,14 @@ import guia.telefonica.Herramientas;
  */
 public class Busqueda extends javax.swing.JInternalFrame {
 
-    /**
-     * Creates new form Busqueda
-     */
+    private int seleccion;
+    ButtonGroup grupo = new ButtonGroup();
     public Busqueda() {
         initComponents();
+        grupo.add(BotonTelefono);
+        grupo.add(BotonApellido);
+        grupo.add(BotonCiudad);
+        
     }
 
     /**
@@ -57,6 +61,11 @@ public class Busqueda extends javax.swing.JInternalFrame {
         Panel2.add(LabelTitulo, new org.netbeans.lib.awtextra.AbsoluteConstraints(6, 6, -1, 43));
 
         BotonCiudad.setText("Por Ciudad");
+        BotonCiudad.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                BotonCiudadItemStateChanged(evt);
+            }
+        });
         Panel2.add(BotonCiudad, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 100, 90, 40));
 
         BotonTelefono.setText("Por Telefono");
@@ -70,6 +79,11 @@ public class Busqueda extends javax.swing.JInternalFrame {
         Panel2.add(BotonTelefono, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 100, 40));
 
         BotonApellido.setText("Por Apellido");
+        BotonApellido.addItemListener(new java.awt.event.ItemListener() {
+            public void itemStateChanged(java.awt.event.ItemEvent evt) {
+                BotonApellidoItemStateChanged(evt);
+            }
+        });
         Panel2.add(BotonApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 90, 40));
         Panel2.add(CampoDeIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 300, 40));
 
@@ -98,10 +112,23 @@ public class Busqueda extends javax.swing.JInternalFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
+    
     private void BotonTelefonoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonTelefonoItemStateChanged
-        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono, "Telefono", 1);
+        seleccion = 1;
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono, "Telefono", seleccion);
+        
     }//GEN-LAST:event_BotonTelefonoItemStateChanged
+
+    private void BotonApellidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonApellidoItemStateChanged
+        seleccion = 2;
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonApellido, "Apellido",seleccion);
+    }//GEN-LAST:event_BotonApellidoItemStateChanged
+
+    private void BotonCiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonCiudadItemStateChanged
+        seleccion = 3;
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonCiudad, "Ciudad", seleccion);
+    }//GEN-LAST:event_BotonCiudadItemStateChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
