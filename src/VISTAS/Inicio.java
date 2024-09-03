@@ -2,7 +2,6 @@ package VISTAS;
 
 import guia.telefonica.Cliente;
 import guia.telefonica.GuiaTelefonica;
-import javax.swing.text.*;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
@@ -439,8 +438,13 @@ public class Inicio extends javax.swing.JFrame {
         Cliente nuevoCliente = new Cliente(doc, n, a, c, d);
         nuevoCliente.addCliente(nuevoCliente);
         
-        GuiaTelefonica.clienteTel.put(t, nuevoCliente);
+        GuiaTelefonica nuevoClientTel = new GuiaTelefonica();
+        nuevoClientTel.putCliente(t, nuevoCliente);
         
+        Long telefonoCliente = nuevoClientTel.getTodoTelefonos().stream().filter(telefono -> telefono.equals(t)).findFirst().orElse(null);
+        
+        mensaje("Cliente "+nuevoCliente.getApellido()+" "+nuevoCliente.getNombre()+" DNI: "+nuevoCliente.getDni(),"TELEFONO: "+telefonoCliente);
+                
         txtDni.setEditable(false); txtDni.setText("");
         txtNom.setEditable(false); txtNom.setText("");
         txtApe.setEditable(false); txtApe.setText("");
@@ -452,6 +456,10 @@ public class Inicio extends javax.swing.JFrame {
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
+    private void mensaje(String mensaje, String titulo) {
+        JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
+    }
+    
     /**
      * @param args the command line arguments
      */
