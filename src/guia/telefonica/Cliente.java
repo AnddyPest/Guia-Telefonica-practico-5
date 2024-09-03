@@ -1,7 +1,6 @@
 package guia.telefonica;
 
 import java.util.Objects;
-import java.util.TreeSet;
 
 public class Cliente implements Comparable<Cliente> {
 
@@ -10,7 +9,7 @@ public class Cliente implements Comparable<Cliente> {
     String apellido;
     String ciudad;
     String direccion;
-    TreeSet<Cliente> clientes;
+    //TreeSet<Cliente> clientes;
 
     public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
@@ -18,7 +17,7 @@ public class Cliente implements Comparable<Cliente> {
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
-        this.clientes = new TreeSet();
+        //this.clientes = new TreeSet();
 
     }
 
@@ -62,7 +61,7 @@ public class Cliente implements Comparable<Cliente> {
         this.direccion = direccion;
     }
 
-    public TreeSet<Cliente> getPersona() {
+   /* public TreeSet<Cliente> getPersona() {
         return clientes;
     }
 
@@ -77,7 +76,7 @@ public class Cliente implements Comparable<Cliente> {
             clientes.add(cliente);
             return true;
         }
-    }
+    }*/
 
 
 

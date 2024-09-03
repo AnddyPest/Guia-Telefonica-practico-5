@@ -11,10 +11,10 @@ import java.util.TreeMap;
  *
  * @author mauri
  */
-public class GuiaTelefonica {
+/*public class GuiaTelefonica {
     
     
-    public TreeMap<Long, Cliente> clienteTel = new TreeMap(); 
+    public TreeMap<Long, Cliente> clienteTel = new TreeMap();
 
      public TreeMap<Long, Cliente> getCliente() {
         return clienteTel;
@@ -29,14 +29,12 @@ public class GuiaTelefonica {
     }
     
     public Set<Long> getTodoTelefonos(){
-        return clienteTel.keySet();
+        return clientes.keySet();
     }
     
     public void putCliente(Long telefono, Cliente cliente) {
         if(!clienteTel.containsKey(telefono)){
             clienteTel.put(telefono, cliente);
-        }else{
-            
         }
 }
 

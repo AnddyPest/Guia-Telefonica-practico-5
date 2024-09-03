@@ -1,10 +1,19 @@
 package VISTAS;
 
 import guia.telefonica.Cliente;
-import guia.telefonica.GuiaTelefonica;
+import java.util.Set;
+//import guia.telefonica.GuiaTelefonica;
+import java.util.TreeMap;
+import java.util.TreeSet;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
+    TreeSet<Cliente> clientes = new TreeSet();
+    TreeMap<Long, Cliente> guiaTelefonica = new TreeMap();
+    
+    
+    
+    
     
     public Inicio() {
         
@@ -428,21 +437,29 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         int doc = Integer.parseInt(txtDni.getText());
-        String n = txtNom.getText();
-        String a = txtApe.getText();
-        String c = txtCiu.getText();
-        String d = txtDir.getText();
-        Long t = Long.valueOf(txtNum.getText());
+        String nombre = txtNom.getText();
+        String apellido = txtApe.getText();
+        String ciudad = txtCiu.getText();
+        String direccion = txtDir.getText();
+        Long tel = Long.valueOf(txtNum.getText());
         
-        Cliente nuevoCliente = new Cliente(doc, n, a, c, d);
-        nuevoCliente.addCliente(nuevoCliente);
+        Cliente nuevoCliente = new Cliente(doc, nombre, apellido, ciudad, direccion);
+        clientes.add(nuevoCliente);
         
-        GuiaTelefonica nuevoClientTel = new GuiaTelefonica();
-        nuevoClientTel.putCliente(t, nuevoCliente);
         
-        Long telefonoCliente = nuevoClientTel.getTodoTelefonos().stream().filter(telefono -> telefono.equals(t)).findFirst().orElse(null);
+        if(!guiaTelefonica.containsKey(tel)){
+            guiaTelefonica.put(tel, nuevoCliente);
+            mensaje("Cliente "+nuevoCliente.getApellido()+" "+nuevoCliente.getNombre()+" DNI: "+nuevoCliente.getDni(),"TELEFONO: "+tel);
+            
+        }else{
+            mensaje("El telefono: "+tel+" ya esta utilizado por otro cliente.","ERROR");
+        }
+    
         
-        mensaje("Cliente "+nuevoCliente.getApellido()+" "+nuevoCliente.getNombre()+" DNI: "+nuevoCliente.getDni(),"TELEFONO: "+telefonoCliente);
+        
+        
+        
+        
                 
         txtDni.setEditable(false); txtDni.setText("");
         txtNom.setEditable(false); txtNom.setText("");
@@ -498,7 +515,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BotonBuscar;
     private javax.swing.JDesktopPane Escritorio;
     private javax.swing.JButton btnNew;
-    private javax.swing.JButton btnSave;
+    public javax.swing.JButton btnSave;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -521,4 +538,9 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField txtNum;
     // End of variables declaration//GEN-END:variables
 
+    
+    public Cliente getTelefono(Long telefono){
+        return guiaTelefonica.get(telefono);
+    }
+     
 }

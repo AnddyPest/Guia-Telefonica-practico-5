@@ -187,6 +187,8 @@ public class Busqueda extends javax.swing.JInternalFrame {
             switch(seleccion){
                 case 1 -> {
                      System.out.println("Telefono");
+                     Long telefono = Long.valueOf(CampoDeIngreso.getText());
+                     telefono
                 }
                 case 2 -> {
                     System.out.println("Apellido");
