@@ -20,6 +20,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         grupo.add(BotonTelefono);
         grupo.add(BotonApellido);
         grupo.add(BotonCiudad);
+        LabelVacio.setVisible(false);
         
     }
 
@@ -40,6 +41,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         BotonApellido = new javax.swing.JToggleButton();
         CampoDeIngreso = new javax.swing.JTextField();
         Buscar = new javax.swing.JButton();
+        LabelVacio = new javax.swing.JLabel();
         ComboBox = new javax.swing.JComboBox<>();
         BotonAceptar = new javax.swing.JButton();
 
@@ -85,10 +87,43 @@ public class Busqueda extends javax.swing.JInternalFrame {
             }
         });
         Panel2.add(BotonApellido, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 100, 90, 40));
+
+        CampoDeIngreso.addFocusListener(new java.awt.event.FocusAdapter() {
+            public void focusLost(java.awt.event.FocusEvent evt) {
+                CampoDeIngresoFocusLost(evt);
+            }
+        });
+        CampoDeIngreso.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                CampoDeIngresoMouseClicked(evt);
+            }
+        });
+        CampoDeIngreso.addInputMethodListener(new java.awt.event.InputMethodListener() {
+            public void caretPositionChanged(java.awt.event.InputMethodEvent evt) {
+            }
+            public void inputMethodTextChanged(java.awt.event.InputMethodEvent evt) {
+                CampoDeIngresoInputMethodTextChanged(evt);
+            }
+        });
+        CampoDeIngreso.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyTyped(java.awt.event.KeyEvent evt) {
+                CampoDeIngresoKeyTyped(evt);
+            }
+        });
         Panel2.add(CampoDeIngreso, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, 300, 40));
 
         Buscar.setText("Buscar");
+        Buscar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BuscarActionPerformed(evt);
+            }
+        });
         Panel2.add(Buscar, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 310, 110, 50));
+
+        LabelVacio.setBackground(java.awt.Color.red);
+        LabelVacio.setForeground(java.awt.Color.red);
+        LabelVacio.setText("No puede estar vacio");
+        Panel2.add(LabelVacio, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, -1, -1));
 
         jPanel1.add(Panel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 320, 580));
 
@@ -116,19 +151,45 @@ public class Busqueda extends javax.swing.JInternalFrame {
     
     private void BotonTelefonoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonTelefonoItemStateChanged
         seleccion = 1;
-        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono, "Telefono", seleccion);
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonTelefono,CampoDeIngreso, "el Telefono", seleccion);
         
     }//GEN-LAST:event_BotonTelefonoItemStateChanged
 
     private void BotonApellidoItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonApellidoItemStateChanged
         seleccion = 2;
-        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonApellido, "Apellido",seleccion);
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonApellido,CampoDeIngreso, "el Apellido",seleccion);
     }//GEN-LAST:event_BotonApellidoItemStateChanged
 
     private void BotonCiudadItemStateChanged(java.awt.event.ItemEvent evt) {//GEN-FIRST:event_BotonCiudadItemStateChanged
         seleccion = 3;
-        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonCiudad, "Ciudad", seleccion);
+        Herramientas.comprobarSiElBotonEstaSeleccionado(BotonCiudad,CampoDeIngreso ,"la Ciudad", seleccion);
     }//GEN-LAST:event_BotonCiudadItemStateChanged
+
+    private void CampoDeIngresoInputMethodTextChanged(java.awt.event.InputMethodEvent evt) {//GEN-FIRST:event_CampoDeIngresoInputMethodTextChanged
+        
+    }//GEN-LAST:event_CampoDeIngresoInputMethodTextChanged
+
+    private void CampoDeIngresoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoDeIngresoKeyTyped
+        
+        Herramientas.noDejarIngresarNumeros(seleccion, evt);
+        
+    }//GEN-LAST:event_CampoDeIngresoKeyTyped
+
+    private void CampoDeIngresoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeIngresoFocusLost
+        
+    }//GEN-LAST:event_CampoDeIngresoFocusLost
+
+    private void BuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BuscarActionPerformed
+        boolean validacion = Herramientas.revisarSiEstaVacio(CampoDeIngreso,LabelVacio ,Buscar);
+        if(!validacion){
+            System.out.println("Paso");
+        }
+    }//GEN-LAST:event_BuscarActionPerformed
+
+    private void CampoDeIngresoMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_CampoDeIngresoMouseClicked
+        CampoDeIngreso.setText("");
+             
+    }//GEN-LAST:event_CampoDeIngresoMouseClicked
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -140,6 +201,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
     private javax.swing.JTextField CampoDeIngreso;
     private javax.swing.JComboBox<String> ComboBox;
     private javax.swing.JLabel LabelTitulo;
+    private javax.swing.JLabel LabelVacio;
     private javax.swing.JPanel Panel2;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables

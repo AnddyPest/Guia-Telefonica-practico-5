@@ -23,16 +23,19 @@ public class Herramientas {
     public static void prenderBotonConfirmar(JButton boton){
         boton.setEnabled(true);
     }
-    //Revisa si un campo de texto esta vacio, de ser así, apaga el boton que se le envia
-    public static void revisarSiEstaVacio(JTextField campoArevisar, JButton boton){
+    //Revisa si un campo de texto esta vacio, de ser así, muestra la etiqueta
+    public static boolean revisarSiEstaVacio(JTextField campoArevisar,JLabel etiqueta ,JButton boton){
         
         if(campoArevisar.getText().strip().isEmpty()){
-            apagarBotonConfirmar(boton);
-            
+          
+            etiqueta.setVisible(true);
+            return true;
         }else{
-            prenderBotonConfirmar(boton);
             
+            etiqueta.setVisible(false);            
+            return false;
         }
+        
         
     }
     //No deja que el usuario escriba otra cosa que no sean numeros en el campo de texto
@@ -72,12 +75,13 @@ public class Herramientas {
         }
     }
     //Comprueba si un JToggleButton esta seleccionado y de ser así lo pone de color verde, si no a su color default
-    public static int comprobarSiElBotonEstaSeleccionado(JToggleButton botonSeleccionado, String nombreDelBoton,int cambiarEleccion){
+    public static int comprobarSiElBotonEstaSeleccionado(JToggleButton botonSeleccionado,JTextField campoAIngresar, String nombreDelBoton,int cambiarEleccion){
         int eleccion = cambiarEleccion;
-        
+            campoAIngresar.setText("");
         if(botonSeleccionado.isSelected()){
             System.out.println("Boton " +  nombreDelBoton + " seleccionado");
             botonSeleccionado.setBackground(Color.GREEN);
+            campoAIngresar.setText("Ingrese " + nombreDelBoton);
         }else{
             System.out.println("Boton " + nombreDelBoton +" deSeleccionado");
             botonSeleccionado.setBackground(Color.getHSBColor(60, 63, 65));
