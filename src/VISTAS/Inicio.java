@@ -1,6 +1,7 @@
 package VISTAS;
 
 import guia.telefonica.Cliente;
+import guia.telefonica.GuiaTelefonica;
 import javax.swing.text.*;
 import javax.swing.*;
 
@@ -430,11 +431,16 @@ public class Inicio extends javax.swing.JFrame {
         int doc = Integer.parseInt(txtDni.getText());
         String n = txtNom.getText();
         String a = txtApe.getText();
-        String d = txtDir.getText();
         String c = txtCiu.getText();
+        String d = txtDir.getText();
+        Long t = Long.valueOf(txtNum.getText());
         
-        Cliente nuevoCliente = new Cliente(doc, n, a, d, c);
+        Cliente nuevoCliente = new Cliente(doc, n, a, c, d);
         nuevoCliente.addCliente(nuevoCliente);
+        
+        GuiaTelefonica.clienteTel.put(t, nuevoCliente);
+        
+        
     }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
