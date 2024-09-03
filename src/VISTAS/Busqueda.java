@@ -15,6 +15,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
 
     private int seleccion = 4;
     ButtonGroup grupo = new ButtonGroup();
+    
     public Busqueda() {
         initComponents();
         grupo.add(BotonTelefono);
@@ -22,6 +23,7 @@ public class Busqueda extends javax.swing.JInternalFrame {
         grupo.add(BotonCiudad);
         LabelVacio.setVisible(false);
         etiquetaSeleccionarBoton.setVisible(false);
+        
         
     }
 

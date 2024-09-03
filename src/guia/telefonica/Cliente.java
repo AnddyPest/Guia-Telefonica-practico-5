@@ -122,7 +122,7 @@ public boolean equals(Object obj) {
     @Override
 public String toString() {
         
-        return "DNI: "+dni+" - "+"Apellido: "+apellido+" - "+"Nombre: "+nombre+" - "+ciudad+" - "+"Direccion: "+direccion;
+        return "DNI: "+dni+" - "+"Apellido: "+apellido+" - "+"Nombre: "+nombre+" - "+"Ciudad: "+ciudad+" - "+"Direccion: "+direccion;
     }
    ;
 

@@ -440,6 +440,14 @@ public class Inicio extends javax.swing.JFrame {
         
         GuiaTelefonica.clienteTel.put(t, nuevoCliente);
         
+        txtDni.setEditable(false); txtDni.setText("");
+        txtNom.setEditable(false); txtNom.setText("");
+        txtApe.setEditable(false); txtApe.setText("");
+        txtCiu.setEditable(false); txtCiu.setText("");
+        txtDir.setEditable(false); txtDir.setText("");
+        txtNum.setEditable(false); txtNum.setText("");
+        btnSave.setEnabled(false);
+        
         
     }//GEN-LAST:event_btnSaveActionPerformed
 

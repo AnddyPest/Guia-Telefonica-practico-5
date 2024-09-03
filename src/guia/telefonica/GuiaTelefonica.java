@@ -2,6 +2,7 @@
 
 package guia.telefonica;
 
+import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
@@ -10,9 +11,15 @@ import java.util.TreeMap;
  * @author mauri
  */
 public class GuiaTelefonica {
+    
+    
+    public static TreeMap<Long, Cliente> clienteTel;
 
-    public static TreeMap<Long, Cliente> clienteTel = new TreeMap();
-
+    public GuiaTelefonica(TreeMap<Long, Cliente> clienteTel) {
+        GuiaTelefonica.clienteTel = new TreeMap();
+    }
+    
+    
     public TreeMap<Long, Cliente> getCliente() {
         return clienteTel;
     }
@@ -20,6 +27,8 @@ public class GuiaTelefonica {
     public void setCliente(TreeMap<Long, Cliente> cliente) {
         this.clienteTel = cliente;
     }
+    
+    
 
     @Override
     public int hashCode() {
@@ -43,7 +52,16 @@ public class GuiaTelefonica {
         return Objects.equals(this.clienteTel, other.clienteTel);
     }
 
+    @Override
+    public String toString() {
+        
+        return "";
+    }
+
+    
+}
+
    
     
     
-}
+
