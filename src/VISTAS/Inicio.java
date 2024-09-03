@@ -2,7 +2,6 @@ package VISTAS;
 
 import guia.telefonica.Cliente;
 import guia.telefonica.GuiaTelefonica;
-import javax.swing.text.*;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
