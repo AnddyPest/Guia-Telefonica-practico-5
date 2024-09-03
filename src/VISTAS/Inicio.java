@@ -1,14 +1,25 @@
-
 package VISTAS;
+
+import guia.telefonica.Cliente;
 import javax.swing.text.*;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
-   
     
     public Inicio() {
         
         initComponents();
+        setLocationRelativeTo(null);
+        btnSave.setEnabled(false);
+    }
+    
+    public void habilitarBtnSrc() {
+        if (!txtDni.getText().isEmpty() && !txtNom.getText().isEmpty() && !txtApe.getText().isEmpty()
+                && !txtDir.getText().isEmpty() && !txtCiu.getText().isEmpty() && !txtNum.getText().isEmpty()) {
+            btnSave.setEnabled(true);
+        } else {
+            btnSave.setEnabled(false);
+        }
     }
 
     /**
@@ -23,7 +34,7 @@ public class Inicio extends javax.swing.JFrame {
         Escritorio = new javax.swing.JDesktopPane();
         jPanel2 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
-        jButton2 = new javax.swing.JButton();
+        btnSave = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         btnNew = new javax.swing.JButton();
@@ -52,9 +63,14 @@ public class Inicio extends javax.swing.JFrame {
         jPanel1.setBackground(new java.awt.Color(153, 153, 153));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 255)));
 
-        jButton2.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
-        jButton2.setText("Guardar");
-        jButton2.setEnabled(false);
+        btnSave.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
+        btnSave.setText("Guardar");
+        btnSave.setEnabled(false);
+        btnSave.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnSaveActionPerformed(evt);
+            }
+        });
 
         jButton3.setFont(new java.awt.Font("Segoe UI", 1, 12)); // NOI18N
         jButton3.setText("Borrar");
@@ -79,7 +95,7 @@ public class Inicio extends javax.swing.JFrame {
                 .addGap(26, 26, 26)
                 .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
@@ -91,7 +107,7 @@ public class Inicio extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnSave, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnNew, javax.swing.GroupLayout.PREFERRED_SIZE, 60, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -174,21 +190,47 @@ public class Inicio extends javax.swing.JFrame {
 
         txtDni.setEditable(false);
         txtDni.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDniKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtDniKeyTyped(evt);
             }
         });
 
         txtNom.setEditable(false);
+        txtNom.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomKeyReleased(evt);
+            }
+        });
 
         txtApe.setEditable(false);
+        txtApe.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtApeKeyReleased(evt);
+            }
+        });
 
         txtDir.setEditable(false);
+        txtDir.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtDirKeyReleased(evt);
+            }
+        });
 
         txtCiu.setEditable(false);
+        txtCiu.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtCiuKeyReleased(evt);
+            }
+        });
 
         txtNum.setEditable(false);
         txtNum.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNumKeyReleased(evt);
+            }
             public void keyTyped(java.awt.event.KeyEvent evt) {
                 txtNumKeyTyped(evt);
             }
@@ -342,23 +384,58 @@ public class Inicio extends javax.swing.JFrame {
 
     private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
         int key = evt.getKeyChar();
-    boolean numero = key>=48 && key<=57;
-    
-    if(!numero){
-        evt.consume();
-    }
+        boolean numero = key >= 48 && key <= 57;
+        
+        if (!numero) {
+            evt.consume();
+        }
 
     }//GEN-LAST:event_txtDniKeyTyped
 
     private void txtNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyTyped
-       int key = evt.getKeyChar();
-    boolean numero = key>=48 && key<=57;
-    
-    if(!numero){
-        evt.consume();
-    }
+        int key = evt.getKeyChar();
+        boolean numero = key >= 48 && key <= 57;
+        
+        if (!numero) {
+            evt.consume();
+        }
 
     }//GEN-LAST:event_txtNumKeyTyped
+
+    private void txtDniKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtDniKeyReleased
+
+    private void txtNomKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtNomKeyReleased
+
+    private void txtApeKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtApeKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtApeKeyReleased
+
+    private void txtDirKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDirKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtDirKeyReleased
+
+    private void txtCiuKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCiuKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtCiuKeyReleased
+
+    private void txtNumKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyReleased
+        habilitarBtnSrc();
+    }//GEN-LAST:event_txtNumKeyReleased
+
+    private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
+        int doc = Integer.parseInt(txtDni.getText());
+        String n = txtNom.getText();
+        String a = txtApe.getText();
+        String d = txtDir.getText();
+        String c = txtCiu.getText();
+        
+        Cliente nuevoCliente = new Cliente(doc, n, a, d, c);
+        nuevoCliente.addCliente(nuevoCliente);
+    }//GEN-LAST:event_btnSaveActionPerformed
 
     /**
      * @param args the command line arguments
@@ -399,7 +476,7 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JButton BotonBuscar;
     private javax.swing.JDesktopPane Escritorio;
     private javax.swing.JButton btnNew;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnSave;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
@@ -422,7 +499,4 @@ public class Inicio extends javax.swing.JFrame {
     private javax.swing.JTextField txtNum;
     // End of variables declaration//GEN-END:variables
 
-
-
-    
 }

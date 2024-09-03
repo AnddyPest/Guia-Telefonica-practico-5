@@ -11,20 +11,20 @@ import java.util.TreeMap;
  */
 public class GuiaTelefonica {
 
-    public static TreeMap<Long, Cliente> cliente = new TreeMap();
+    public static TreeMap<Long, Cliente> clienteTel = new TreeMap();
 
     public TreeMap<Long, Cliente> getCliente() {
-        return cliente;
+        return clienteTel;
     }
 
     public void setCliente(TreeMap<Long, Cliente> cliente) {
-        this.cliente = cliente;
+        this.clienteTel = cliente;
     }
 
     @Override
     public int hashCode() {
         int hash = 3;
-        hash = 97 * hash + Objects.hashCode(this.cliente);
+        hash = 97 * hash + Objects.hashCode(this.clienteTel);
         return hash;
     }
 
@@ -40,7 +40,7 @@ public class GuiaTelefonica {
             return false;
         }
         final GuiaTelefonica other = (GuiaTelefonica) obj;
-        return Objects.equals(this.cliente, other.cliente);
+        return Objects.equals(this.clienteTel, other.clienteTel);
     }
 
    

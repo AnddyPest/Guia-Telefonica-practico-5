@@ -3,15 +3,14 @@ package guia.telefonica;
 import java.util.Objects;
 import java.util.TreeSet;
 
-
-public class Cliente implements Comparable<Cliente>{
+public class Cliente implements Comparable<Cliente> {
 
     int dni;
     String nombre;
     String apellido;
     String ciudad;
     String direccion;
-    TreeSet<Cliente> cliente;    
+    TreeSet<Cliente> clientes;
 
     public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
@@ -19,8 +18,8 @@ public class Cliente implements Comparable<Cliente>{
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
-        this.cliente = new TreeSet();
-        
+        this.clientes = new TreeSet();
+
     }
 
     public int getDni() {
@@ -64,17 +63,26 @@ public class Cliente implements Comparable<Cliente>{
     }
 
     public TreeSet<Cliente> getPersona() {
-        return cliente;
+        return clientes;
     }
 
     public void setPersona(TreeSet<Cliente> persona) {
-        this.cliente = persona;
+        this.clientes = persona;
     }
 
-    
-    
-    @Override
-    public int hashCode() {
+    public boolean addCliente(Cliente cliente) {
+        if (clientes.contains(cliente)) {
+            return false;
+        } else {
+            clientes.add(cliente);
+            return true;
+        }
+    }
+
+
+
+@Override
+public int hashCode() {
         int hash = 7;
         hash = 83 * hash + this.dni;
         hash = 83 * hash + Objects.hashCode(this.nombre);
@@ -85,7 +93,7 @@ public class Cliente implements Comparable<Cliente>{
     }
 
     @Override
-    public boolean equals(Object obj) {
+public boolean equals(Object obj) {
         if (this == obj) {
             return true;
         }
@@ -112,15 +120,15 @@ public class Cliente implements Comparable<Cliente>{
     }
 
     @Override
-    public String toString() {
+public String toString() {
         
         return "DNI: "+dni+" - "+"Apellido: "+apellido+" - "+"Nombre: "+nombre+" - "+ciudad+" - "+"Direccion: "+direccion;
     }
    ;
 
     @Override
-    
-    public int compareTo(Cliente o) {
+
+public int compareTo(Cliente o) {
         if(this.apellido.equalsIgnoreCase(o.apellido)){
             return this.nombre.compareTo(o.nombre);
         }else{
