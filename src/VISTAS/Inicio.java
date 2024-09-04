@@ -1,21 +1,54 @@
 package VISTAS;
 
 import guia.telefonica.Cliente;
+import java.util.Objects;
 import java.util.TreeMap;
 import java.util.TreeSet;
 import javax.swing.*;
 
 public class Inicio extends javax.swing.JFrame {
+
     TreeSet<Cliente> clientes = new TreeSet();
     TreeMap<Long, Cliente> guiaTelefonica = new TreeMap();
+  
     
+    public TreeSet<Cliente> getClientes() {
+        return clientes;
+    }
+
+    public TreeMap<Long, Cliente> getGuiaTelefonica() {
+        return guiaTelefonica;
+    }
+    
+    public Cliente getTelefono(Long telefono) {
+        return guiaTelefonica.get(telefono);
+    }
+
     public Inicio() {
         
+         
         initComponents();
         setLocationRelativeTo(null);
         btnSave.setEnabled(false);
+        Cliente cl1 = new Cliente(12963258, "Roberto", "Perez", "San Luis", "Pringles 669");
+        Cliente cl2 = new Cliente(30268789, "Ana", "Furnari", "San Luis", "San Martin 992");
+        Cliente cl3 = new Cliente(23454874, "Sandra", "Arancibia", "Villa Mercedes", "Cnel. Mercau 145");
+        Cliente cl4 = new Cliente(25262994, "Francisco", "Solano", "Villa Mercedes", "Pringles 87");
+        Cliente cl5 = new Cliente(38887984, "Diego", "Mercado", "Merlo", "Avenida del sol 650");
+        clientes.add(cl1); clientes.add(cl2); clientes.add(cl3); clientes.add(cl4); clientes.add(cl5);
         
+        guiaTelefonica.put(2664123456L, cl1);
+        guiaTelefonica.put(2664234567L, cl2);
+        guiaTelefonica.put(2657456789L, cl3);
+        guiaTelefonica.put(2657987654L, cl4);
+        guiaTelefonica.put(2655357951L, cl5);
+        
+    
+        
+
     }
+    
+    
     
     public void habilitarBtnSrc() {
         if (!txtDni.getText().isEmpty() && !txtNom.getText().isEmpty() && !txtApe.getText().isEmpty()
@@ -373,8 +406,6 @@ public class Inicio extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void BotonBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonBuscarActionPerformed
-        Escritorio.removeAll();
-        Escritorio.repaint();
         Busqueda vistaBusqueda = new Busqueda();
         vistaBusqueda.setVisible(true);
         Escritorio.add(vistaBusqueda);
@@ -394,7 +425,7 @@ public class Inicio extends javax.swing.JFrame {
     private void txtDniKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDniKeyTyped
         int key = evt.getKeyChar();
         boolean numero = key >= 48 && key <= 57;
-        
+
         if (!numero) {
             evt.consume();
         }
@@ -404,7 +435,7 @@ public class Inicio extends javax.swing.JFrame {
     private void txtNumKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNumKeyTyped
         int key = evt.getKeyChar();
         boolean numero = key >= 48 && key <= 57;
-        
+
         if (!numero) {
             evt.consume();
         }
@@ -437,39 +468,44 @@ public class Inicio extends javax.swing.JFrame {
 
     private void btnSaveActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSaveActionPerformed
         int doc = Integer.parseInt(txtDni.getText());
-        boolean validado = false;    
+        boolean validado = false;
         String nombre = txtNom.getText();
         String apellido = txtApe.getText();
         String ciudad = txtCiu.getText();
         String direccion = txtDir.getText();
         Long telefono = Long.valueOf(txtNum.getText());
-        
+
         Cliente nuevoCliente = new Cliente(doc, nombre, apellido, ciudad, direccion);
         clientes.add(nuevoCliente);
         // revisa las "claves" de la guia, si es repetido le agrega a validado como verdadero 
-        for(Long telefon : guiaTelefonica.keySet() ){
-            if(telefon == telefono ){
+        for (Long telefon : guiaTelefonica.keySet()) {
+            if (Objects.equals(telefon, telefono)) {
                 validado = true;
             }
         }
         //si "validado" es verdadero entonces no va a modificar el valor que contenga ese usuario.
-        if(!validado){
+        if (!validado) {
             guiaTelefonica.put(telefono, nuevoCliente);
-            mensaje("Cliente "+ nuevoCliente.getApellido() +" "+ nuevoCliente.getNombre() + " DNI: " + nuevoCliente.getDni() , "TELEFONO: " + telefono );
-            
+            mensaje("Cliente " + nuevoCliente.getApellido() + " " + nuevoCliente.getNombre() + " DNI: " + nuevoCliente.getDni(), "TELEFONO: " + telefono);
+
         } else {
-            mensaje("El telefono: " + telefono + " ya esta utilizado por otro cliente.","ERROR");
+            mensaje("El telefono: " + telefono + " ya esta utilizado por otro cliente.", "ERROR");
         }
-        
-                
-        txtDni.setEditable(false); txtDni.setText("");
-        txtNom.setEditable(false); txtNom.setText("");
-        txtApe.setEditable(false); txtApe.setText("");
-        txtCiu.setEditable(false); txtCiu.setText("");
-        txtDir.setEditable(false); txtDir.setText("");
-        txtNum.setEditable(false); txtNum.setText("");
+
+        txtDni.setEditable(false);
+        txtDni.setText("");
+        txtNom.setEditable(false);
+        txtNom.setText("");
+        txtApe.setEditable(false);
+        txtApe.setText("");
+        txtCiu.setEditable(false);
+        txtCiu.setText("");
+        txtDir.setEditable(false);
+        txtDir.setText("");
+        txtNum.setEditable(false);
+        txtNum.setText("");
         btnSave.setEnabled(false);
-        
+
         
     }//GEN-LAST:event_btnSaveActionPerformed
 
@@ -477,10 +513,12 @@ public class Inicio extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_btnExitActionPerformed
 
+    
+
     private void mensaje(String mensaje, String titulo) {
         JOptionPane.showMessageDialog(this, mensaje, titulo, JOptionPane.INFORMATION_MESSAGE);
     }
-    
+
     /**
      * @param args the command line arguments
      */
@@ -507,13 +545,14 @@ public class Inicio extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(Inicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
-
+        
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new Inicio().setVisible(true);
             }
         });
+        
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -544,8 +583,5 @@ public class Inicio extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     
-    public Cliente getTelefono(Long telefono){
-        return guiaTelefonica.get(telefono);
-    }
-     
+
 }

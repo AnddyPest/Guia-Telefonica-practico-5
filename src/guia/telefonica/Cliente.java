@@ -9,7 +9,7 @@ public class Cliente implements Comparable<Cliente> {
     String apellido;
     String ciudad;
     String direccion;
-    //TreeSet<Cliente> clientes;
+    
 
     public Cliente(int dni, String nombre, String apellido, String ciudad, String direccion) {
         this.dni = dni;
@@ -17,7 +17,7 @@ public class Cliente implements Comparable<Cliente> {
         this.apellido = apellido;
         this.ciudad = ciudad;
         this.direccion = direccion;
-        //this.clientes = new TreeSet();
+        
 
     }
 
@@ -61,22 +61,7 @@ public class Cliente implements Comparable<Cliente> {
         this.direccion = direccion;
     }
 
-   /* public TreeSet<Cliente> getPersona() {
-        return clientes;
-    }
-
-    public void setPersona(TreeSet<Cliente> persona) {
-        this.clientes = persona;
-    }
-
-    public boolean addCliente(Cliente cliente) {
-        if (clientes.contains(cliente)) {
-            return false;
-        } else {
-            clientes.add(cliente);
-            return true;
-        }
-    }*/
+   
 
 
 

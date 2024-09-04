@@ -5,7 +5,10 @@
 package VISTAS;
 
 import guia.telefonica.Herramientas;
+
 import javax.swing.ButtonGroup;
+
+
 
 /**
  *
@@ -16,6 +19,10 @@ public class Busqueda extends javax.swing.JInternalFrame {
     private int seleccion = 4;
     ButtonGroup grupo = new ButtonGroup();
     
+    
+    
+    
+    
     public Busqueda() {
         initComponents();
         grupo.add(BotonTelefono);
@@ -25,7 +32,9 @@ public class Busqueda extends javax.swing.JInternalFrame {
         etiquetaSeleccionarBoton.setVisible(false);
         
         
+        
     }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -199,9 +208,17 @@ public class Busqueda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CampoDeIngresoInputMethodTextChanged
 
     private void CampoDeIngresoKeyTyped(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_CampoDeIngresoKeyTyped
+        if(seleccion == 1){
+            int key = evt.getKeyChar();
+        boolean numero = key >= 48 && key <= 57;
         
-        Herramientas.noDejarIngresarNumeros(seleccion, evt);
-        
+        if (!numero) {
+            evt.consume();
+        }
+        }
+        if(seleccion ==2 || seleccion==3){
+            Herramientas.noDejarIngresarNumeros(seleccion, evt);
+        }
     }//GEN-LAST:event_CampoDeIngresoKeyTyped
 
     private void CampoDeIngresoFocusLost(java.awt.event.FocusEvent evt) {//GEN-FIRST:event_CampoDeIngresoFocusLost
@@ -213,10 +230,10 @@ public class Busqueda extends javax.swing.JInternalFrame {
         if(!validacion && seleccion != 0){
             switch(seleccion){
                 case 1 -> {
-                     System.out.println("Telefono");
-                     
-                     
-                }
+                    
+                    
+                     }
+                
                 case 2 -> {
                     System.out.println("Apellido");
                 }
@@ -239,7 +256,8 @@ public class Busqueda extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_CampoDeIngresoMouseClicked
 
     private void BotonVolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BotonVolverActionPerformed
-        this.setVisible(false);        
+        this.setVisible(false);
+        
         
                        
     }//GEN-LAST:event_BotonVolverActionPerformed
